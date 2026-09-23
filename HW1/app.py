@@ -12,5 +12,15 @@ def home():
         student_id="23013335"
     )
 
+# 프로필 페이지 : 취미 3개
+@app.route("/profile")
+def profile():
+    hobbies = ["게임", "코딩", "음악 감상"]
+
+    return render_template(
+        "profile.html",
+        hobbies=hobbies
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)
