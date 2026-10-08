@@ -16,6 +16,13 @@ def index():
         return redirect(url_for('index'))
     return render_template('index.html', todos=todos)
 
+@app.route('/toggle/<int:index>')
+def toggle(index):
+    if 0 <= index < len(todos):
+        todos[index]['done'] = not todos[index]['done']
+
+    return redirect(url_for('index'))
+
 @app.route('/delete/<int:index>')
 def delete(index):
     if 0 <= index < len(todos):
